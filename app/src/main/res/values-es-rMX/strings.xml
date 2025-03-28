@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name='app_name'>Proyecto de clase</string>
-    <string name='email'>Correo</string>
+    <string name="login_image_desc">Imagen de inicio de sesión</string>
+    <string name='email_label'>Correo</string>
+    <string name="password_label">contraseña</string>
+    <string name="weight">peso</string>
+    <string name="height">altura</string>
+    <string name="incorrect_weight">El paciente no está en peso ideal</string>
+    <string name="invalid_input">Invalido</string>
+    <string name="enter_weight" >Ingresa peso</string>
+    <string name="enter_height" >Ingresa altura</string>
+    <string name="calculate" >Calcular</string>
+    <string name="correct_weight">El paciente está en peso ideal</string>
+    <string name="login_button">Comenzar</string>
 </resources>

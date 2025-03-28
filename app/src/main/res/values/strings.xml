@@ -3,5 +3,13 @@
     <string name="login_image_desc">Imagen de inicio de sesión</string>
     <string name="email_label">email</string>
     <string name="password_label">password</string>
-    <string name="login_button">Log In</string>
+    <string name="weight">weight</string>
+    <string name="height">height</string>
+    <string name="correct_weight" >The patient is at an ideal weight</string>
+    <string name="incorrect_weight">The patient is not at an ideal weight</string>
+    <string name="invalid_input" >Invalid input</string>
+    <string name="enter_weight" >Enter weight</string>
+    <string name="enter_height" >Enter height</string>
+    <string name="calculate" >Calculate</string>
+    <string name="login_button" >"Login "</string>
 </resources>
