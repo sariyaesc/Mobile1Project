@@ -18,11 +18,15 @@ fun IMCScreen(viewModel: IMCViewModel = viewModel()) {
     val weight by viewModel.weight.collectAsState()
     val height by viewModel.height.collectAsState()
     val imcResult by viewModel.imcResult.collectAsState()
+    val imcVal by viewModel.imcVal.collectAsState()
 
     Column(
         modifier = Modifier.padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
+
+
+
         OutlinedTextField(
             value = weight,
             onValueChange = { viewModel.weight.value = it },
@@ -36,5 +40,12 @@ fun IMCScreen(viewModel: IMCViewModel = viewModel()) {
         Button(onClick = { viewModel.calculateIMC(context) }) {
             Text(stringResource(R.string.calculate))
         }
-        Text(text = imcResult) }
+
+        Text(text = imcResult)
+
+        imcVal?.let {
+            Text(text = "BMI: %.2f".format(it)) // Display the BMI with two decimal places
+        }
+
+    }
 }

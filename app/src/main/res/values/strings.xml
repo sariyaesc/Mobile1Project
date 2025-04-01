@@ -10,6 +10,10 @@
     <string name="invalid_input" >Invalid input</string>
     <string name="enter_weight" >Enter weight</string>
     <string name="enter_height" >Enter height</string>
+    <string name="enter_temperature" >Enter Temperature</string>
+    <string name="temp_result_text" >"The temperature in °F: "</string>
+    <string name="temp_app_name" >"Coverter: °C to °F"</string>
+    <string name="temp_image_desc" >"Termometer"</string>
     <string name="calculate" >Calculate</string>
     <string name="login_button" >"Login "</string>
 </resources>

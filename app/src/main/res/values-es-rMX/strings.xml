@@ -10,6 +10,10 @@
     <string name="invalid_input">Invalido</string>
     <string name="enter_weight" >Ingresa peso</string>
     <string name="enter_height" >Ingresa altura</string>
+    <string name="enter_temperature">Ingresa la temperatura</string>
+    <string name="temp_result_text">"Temperatura en °F: "</string>
+    <string name="temp_app_name">Conversor: °C to °F</string>
+    <string name="temp_image_desc">Termómetro</string>
     <string name="calculate" >Calcular</string>
     <string name="correct_weight">El paciente está en peso ideal</string>
     <string name="login_button">Comenzar</string>
