@@ -6,11 +6,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mobile1project.navigation.TabBarNavigationView
 import com.example.mobile1project.tempconv.viewModels.tempconvViewModel
-import com.example.mobile1project.tempconv.views.tempoconvView
+import com.example.mobile1project.tempconv.views.tempconvView
 import com.example.mobile1project.ui.theme.Mobile1ProjectTheme
 import imc.views.IMCScreen
 import imc.viewmodels.IMCViewModel
@@ -22,10 +25,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Mobile1ProjectTheme {
-                val viewModel: tempconvViewModel = viewModel()
-                tempoconvView(viewModel = viewModel)
-
+                Surface(color = MaterialTheme.colorScheme.background) {
+                    TabBarNavigationView()
+                }
             }
         }
+
     }
 }

@@ -33,10 +33,11 @@ import com.example.mobile1project.R
 import com.example.mobile1project.tempconv.viewModels.tempconvViewModel
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 
 @Composable
-fun tempoconvView(viewModel: tempconvViewModel) {
+fun tempconvView(viewModel: tempconvViewModel) {
     val context = LocalContext.current
     val temp by viewModel.temp.collectAsState()
     val tempResult by viewModel.tempResult.collectAsState()
@@ -82,4 +83,9 @@ fun tempoconvView(viewModel: tempconvViewModel) {
                 .clip(CircleShape)
         )
     }
+}
+@Composable
+fun tempconvView() {
+    val viewModel: tempconvViewModel = viewModel()
+    tempconvView(viewModel)
 }
