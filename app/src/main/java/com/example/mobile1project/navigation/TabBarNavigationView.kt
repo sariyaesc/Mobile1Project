@@ -7,7 +7,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.*
-import com.example.mobile1project.Student.view.StudentList
+import com.example.mobile1project.Student.views.StudentListScreen
 import com.example.mobile1project.ids.IdsView
 import com.example.mobile1project.firstpartial.FirstPartialView
 import com.example.mobile1project.secondpartial.SecondPartialView
@@ -57,7 +57,7 @@ fun TabBarNavigationView(navController: NavHostController = rememberNavControlle
             composable("CalculatorScreen") { CalculatorScreen() }
             composable("IMCScreen") { IMCScreen() }
             composable("tempconvView") { tempconvView() }
-            composable("StudentList"){ StudentList() }
+            composable("StudentListScreen"){ StudentListScreen() }
 
 
         }
