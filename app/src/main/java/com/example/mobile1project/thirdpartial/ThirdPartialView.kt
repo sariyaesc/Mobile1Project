@@ -32,6 +32,14 @@ fun ThirdPartialView(navController: NavController) {
         ) {
             Text("Mostrar Estudiantes")
         }
-    }
 
+        Spacer(modifier = Modifier.height(24.dp))
+
+        Button(
+            onClick = { navController.navigate("RestaurantScreen") },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Cargar Restaurantes")
+        }
+    }
 }

@@ -1,15 +1,25 @@
 package com.example.mobile1project.navigation
 
+import android.net.Uri
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.*
+import androidx.navigation.navArgument
 import com.example.mobile1project.Student.views.StudentListScreen
 import com.example.mobile1project.ids.IdsView
 import com.example.mobile1project.firstpartial.FirstPartialView
+import com.example.mobile1project.restaurantes.network.RestaurantApiService
+import com.example.mobile1project.restaurantes.repository.RestaurantRepository
+import com.example.mobile1project.restaurantes.viewmodel.RestaurantViewModel
+import com.example.mobile1project.restaurantes.viewmodel.RestaurantViewModelFactory
+import com.example.mobile1project.restaurantes.views.RestaurantDetailScreen
+import com.example.mobile1project.restaurantes.views.RestaurantScreen
 import com.example.mobile1project.secondpartial.SecondPartialView
 import com.example.mobile1project.sum.views.CalculatorScreen
 import com.example.mobile1project.tempconv.views.tempconvView
@@ -24,6 +34,10 @@ fun TabBarNavigationView(navController: NavHostController = rememberNavControlle
         ScreenNavigation.SecondPartial,
         ScreenNavigation.ThirdPartial
     )
+
+    // Instancia del ViewModel una sola vez
+    val repository = RestaurantRepository(RestaurantApiService.create())
+    val restaurantViewModel: RestaurantViewModel = viewModel(factory = RestaurantViewModelFactory(repository))
 
     Scaffold(
         bottomBar = {
@@ -57,9 +71,26 @@ fun TabBarNavigationView(navController: NavHostController = rememberNavControlle
             composable("CalculatorScreen") { CalculatorScreen() }
             composable("IMCScreen") { IMCScreen() }
             composable("tempconvView") { tempconvView() }
-            composable("StudentListScreen"){ StudentListScreen() }
+            composable("StudentListScreen") { StudentListScreen() }
 
+            composable("RestaurantScreen") {
+                RestaurantScreen(viewModel = restaurantViewModel, navController = navController)
+            }
 
+            composable(
+                route = "RestaurantDetailScreen/{restaurantName}",
+                arguments = listOf(navArgument("restaurantName") { type = NavType.StringType })
+            ) { backStackEntry ->
+                val encodedName = backStackEntry.arguments?.getString("restaurantName") ?: ""
+                val restaurantName = Uri.decode(encodedName)
+
+                val restaurant = restaurantViewModel.getRestaurantByName(restaurantName)
+                if (restaurant != null) {
+                    RestaurantDetailScreen(restaurant)
+                } else {
+                    Text("Restaurante no encontrado.")
+                }
+            }
         }
     }
 }
